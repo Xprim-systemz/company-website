@@ -1,7 +1,7 @@
 import smtplib,ssl
 
 
-def send_email(message,sender):
+def send_email(message,topic):
     host = "smtp.gmail.com"
     port = 465
     username = "terese.akombo@gmail.com"
@@ -9,7 +9,10 @@ def send_email(message,sender):
     receiver = "terese.akombo@gmail.com"
     my_context = ssl.create_default_context()
     message2 = f"""\
-Subject: 
+Subject: Enquiry on {topic}
+
+Topic: {topic} 
+
 {message}
 """
     with smtplib.SMTP_SSL(host, port, context=my_context) as server:
